@@ -54,7 +54,8 @@ const LoginView: React.FC<LoginViewProps> = () => {
             placeholder="Enter your password"
             placeholderTextColor="#666"
           />
-          <TouchableOpacity style={styles.forgotButton}>
+          <TouchableOpacity style={styles.forgotButton}
+            onPress={() => console.log('Forgot password pressed')}>
             <Text style={styles.forgotPassword}>Forgot?</Text>
           </TouchableOpacity>
         </View>
