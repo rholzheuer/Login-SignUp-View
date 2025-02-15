@@ -1,4 +1,4 @@
-import LoginView from '../views/LoginView';
+import LoginView from './index';
 
 export default function LoginScreen() {
   return <LoginView />;

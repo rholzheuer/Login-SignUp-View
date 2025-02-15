@@ -1,18 +1,20 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { router } from 'expo-router';
+import { useRouter } from 'expo-router'; // Updated import
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 interface SignupViewProps {
   onBackPress?: () => void;
 }
 
-const SignupView: React.FC<SignupViewProps> = ({ onBackPress }) => {
+const SignupView: React.FC<SignupViewProps> = () => {
+  const router = useRouter(); // Updated hook
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
+        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}> {/* Updated onPress */}
           <Ionicons name="arrow-back" size={24} color="#000" />
         </TouchableOpacity>
 
@@ -98,7 +100,8 @@ const SignupView: React.FC<SignupViewProps> = ({ onBackPress }) => {
           />
         </View>
 
-        <TouchableOpacity style={styles.signupButton}>
+        <TouchableOpacity style={styles.signupButton}
+          onPress={() => console.log('Sign up pressed')}>
           <Text style={styles.signupButtonText}>SIGN UP</Text>
         </TouchableOpacity>
 
